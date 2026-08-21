@@ -1,53 +1,53 @@
-# Pull Request — Miglioramenti mirroring, Android 14+ e UX
+# Pull Request — Mirroring reliability, Android 14+ support, and UX improvements
 
-## Sommario
+## Summary
 
-Questa PR propone un set di miglioramenti sviluppati sul fork [IlSommoKadam/Scrcpy-for-Android](https://github.com/IlSommoKadam/Scrcpy-for-Android), focalizzati su affidabilità del mirroring, compatibilità Android 14+, esperienza utente e diagnostica.
+This PR proposes a set of improvements developed on the fork [IlSommoKadam/ScrcpyForAndroid](https://github.com/IlSommoKadam/ScrcpyForAndroid), focused on mirroring reliability, Android 14+ compatibility, user experience, and diagnostics.
 
-**10 commit** · **38 file** · **+2534 / −391 righe**
+**12 commits** · **38 files** · **+2534 / −391 lines**
 
-## Modifiche principali
+## Main changes
 
-### Fix affidabilità mirroring
-- Risolto schermo nero causato da timing errato della `Surface` (attesa callback `SurfaceHolder` prima di avviare il servizio)
-- Re-bind automatico della surface su resume e cambi configurazione
-- Fix CONFIG frame saltati dopo rotazione: parsing SPS/PPS sempre attivo
-- Encoder non riavviato inutilmente dopo il primo frame prodotto (elimina lag)
+### Mirroring reliability fixes
+- Fixed black screen caused by incorrect `Surface` timing (wait for `SurfaceHolder` callback before starting the service)
+- Automatic surface re-bind on resume and configuration changes
+- Fixed skipped CONFIG frames after rotation: SPS/PPS parsing always active
+- Encoder no longer restarted unnecessarily after the first frame (eliminates lag)
 
-### Android 14+ e encoder
-- Fallback automatico tra encoder hardware quando il primario fallisce
-- Touch mapping scalato per risoluzioni diverse tra client e server
-- Miglioramenti a `ScreenEncoder`, `ScreenCapture` e wrapper di sistema
+### Android 14+ and encoder
+- Automatic fallback between hardware encoders when the primary fails
+- Scaled touch mapping for different client and server resolutions
+- Improvements to `ScreenEncoder`, `ScreenCapture`, and system wrappers
 
-### Risoluzione automatica
-- Nuova modalità **Auto**: calcola il minimo tra display locale e remoto via ADB (`wm size`)
-- `ResolutionHelper` con anteprima in UI e indicazione del limite attivo
-- Stringhe localizzate EN/JA/ZH
+### Auto resolution
+- New **Auto** mode: computes the minimum between local and remote display via ADB (`wm size`)
+- `ResolutionHelper` with UI preview and active limit indication
+- Localized strings EN/JA/ZH
 
-### Rotazione durante sessione
-- Mirror ruotabile con `FULL_SENSOR` senza disconnessione
-- Reinflate layout portrait/landscape con risorse `layout-land`
-- Rebind surface video alla rotazione senza restart del servizio scrcpy
+### Rotation during session
+- Rotatable mirror with `FULL_SENSOR` without disconnection
+- Portrait/landscape layout reinflate with `layout-land` resources
+- Video surface rebind on rotation without restarting the scrcpy service
 
-### Controlli e stato dispositivo
-- LED online/offline accanto al campo IP (verifica connettività ADB)
-- Pulsante riavvio ADB (`adb reboot`) con dialog di conferma
-- Pulsante spegnimento ADB (`adb reboot -p`) con dialog di conferma
-- Pulsante Power nella barra di navigazione del mirror
+### Device controls and status
+- Online/offline LED next to the IP field (ADB connectivity check)
+- ADB reboot button (`adb reboot`) with confirmation dialog
+- ADB power-off button (`adb reboot -p`) with confirmation dialog
+- Power button in the mirror navigation bar
 
-### Diagnostica
-- `SessionLog`: log di sessione resettato ad ogni avvio, condivisibile via email/WhatsApp
-- `LogFileProvider` per condivisione sicura dei file di log
+### Diagnostics
+- `SessionLog`: session log reset on every app start, shareable via email/WhatsApp
+- `LogFileProvider` for secure log file sharing
 
 ### UI
-- Titolo app stilizzato con sottotitolo
-- Pannello impostazioni espandibile/collassabile
-- Opzioni avanzate: codec video, FPS max, encoder personalizzato
+- Styled app title with subtitle
+- Expandable/collapsible settings panel
+- Advanced options: video codec, max FPS, custom encoder
 
-## File toccati
+## Files touched
 
 <details>
-<summary>Elenco completo (38 file)</summary>
+<summary>Full list (38 files)</summary>
 
 **Client:** `MainActivity.java`, `Scrcpy.java`, `Options.java`, `VideoDecoder.java`, `ResolutionHelper.java`, `SessionLog.java`, `AdbHelper.java`, `ExecUtil.java`, layout XML, strings EN/JA/ZH
 
@@ -55,20 +55,37 @@ Questa PR propone un set di miglioramenti sviluppati sul fork [IlSommoKadam/Scrc
 
 </details>
 
-## Test effettuati
+## Testing
 
-- Mirroring su rete locale con risoluzione Auto e fissa
-- Rotazione dispositivo client durante sessione attiva
-- Pulsanti navigazione mirror (back, home, menu, power)
-- Comandi ADB reboot e power off
-- LED stato con IP valido/non valido
+- Local network mirroring with Auto and fixed resolution
+- Client device rotation during active session
+- Mirror navigation buttons (back, home, menu, power)
+- ADB reboot and power-off commands
+- Status LED with valid/invalid IP
 
-## Note
+## Notes
 
-- Alcune stringhe UI nel `strings.xml` di default sono in italiano; possono essere convertite in inglese se preferito.
-- `versionCode`/`versionName` incrementati nel fork (1.5.20 / r33); numerazione a discrezione del maintainer.
-- Nessuna nuova dipendenza esterna.
+- Some UI strings in the default `strings.xml` are in Italian; they can be converted to English if preferred.
+- `versionCode`/`versionName` incremented in the fork (1.5.20 / r33); final numbering at maintainer's discretion.
+- No new external dependencies.
 
-## Changelog completo
+## Full changelog
 
-Vedi [CHANGELOG.md](CHANGELOG.md) per il dettaglio commit per commit.
+See [CHANGELOG.md](CHANGELOG.md) for commit-by-commit details.
+
+---
+
+## Sommario (Italiano)
+
+Questa PR propone un set di miglioramenti sviluppati sul fork [IlSommoKadam/ScrcpyForAndroid](https://github.com/IlSommoKadam/ScrcpyForAndroid), focalizzati su affidabilità del mirroring, compatibilità Android 14+, esperienza utente e diagnostica.
+
+### Modifiche principali
+- Fix schermo nero (timing surface, CONFIG frame, encoder restart)
+- Supporto Android 14+ con fallback encoder e touch mapping scalato
+- Risoluzione **Auto** (min tra display locale e remoto)
+- Rotazione mirror durante sessione attiva
+- LED online/offline, pulsanti ADB reboot/power-off, pulsante Power nel mirror
+- Log di sessione condivisibili
+- UI migliorata (titolo, impostazioni espandibili, opzioni avanzate)
+
+Vedi [CHANGELOG.md](CHANGELOG.md) per il dettaglio completo.
