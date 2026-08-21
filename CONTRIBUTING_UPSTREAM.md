@@ -21,14 +21,23 @@ Portare nel progetto originale un set coerente di miglioramenti sviluppati sul f
 
 ## Come aprire la PR manualmente
 
-Se la PR non è stata creata automaticamente:
+> **Nota:** il repository `IlSommoKadam/Scrcpy-for-Android` non risulta registrato come fork GitHub di `zwc456baby/ScrcpyForAndroid`. Per questo motivo il link di confronto automatico potrebbe non funzionare. Usa la procedura "compare across forks" descritta sotto.
 
-1. Vai su https://github.com/zwc456baby/ScrcpyForAndroid/compare
+1. Vai su https://github.com/zwc456baby/ScrcpyForAndroid/compare/main
 2. Clicca **compare across forks**
 3. Imposta:
    - **base repository:** `zwc456baby/ScrcpyForAndroid` → branch `main`
    - **head repository:** `IlSommoKadam/Scrcpy-for-Android` → branch `cursor/upstream-contribution-cb6e`
-4. Usa titolo e descrizione dal file `PULL_REQUEST.md` (o dalla PR creata automaticamente)
+4. Clicca **Create pull request**
+5. Copia titolo e descrizione dal file [`PULL_REQUEST.md`](PULL_REQUEST.md):
+   - **Titolo:** `Mirroring reliability, Android 14+ support, and UX improvements`
+   - **Corpo:** incolla il contenuto completo di `PULL_REQUEST.md`
+
+### Link diretto (se il fork viene collegato in futuro)
+
+```
+https://github.com/zwc456baby/ScrcpyForAndroid/compare/main...IlSommoKadam:Scrcpy-for-Android:cursor/upstream-contribution-cb6e?expand=1
+```
 
 ## Test consigliati prima del merge
 
