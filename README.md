@@ -49,6 +49,20 @@
 
 - [2000:2000:2000:2000::2000]:5555
 
+## Fork improvements (v1.5.20 / r33)
+
+This fork adds reliability fixes, Android 14+ support, and UX enhancements over the upstream project. See [CHANGELOG.md](CHANGELOG.md) for the full list.
+
+Highlights:
+- Black screen fixes (surface timing, CONFIG frames, encoder restart)
+- Auto resolution (min of local and remote display)
+- Rotated mirror view during active session
+- ADB reboot/power-off buttons and online/offline status LED
+- Session log sharing for diagnostics
+- Android 14+ encoder fallback and scaled touch mapping
+
+To contribute these changes back to upstream, see [CONTRIBUTING_UPSTREAM.md](CONTRIBUTING_UPSTREAM.md).
+
 ## Code Reference
 
 - [scrcpy-android](https://gitlab.com/las2mile/scrcpy-android)
