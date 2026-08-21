@@ -1,8 +1,8 @@
 # Contributing to the upstream project / Contributo al progetto originale
 
-This document describes the branch `cursor/upstream-contribution-cb6e` prepared for a pull request to the original repository.
+This document describes the branch `cursor/branch-setup-bf00`, which includes all fork improvements and contribution docs for a pull request to the original repository.
 
-Questo documento descrive il branch `cursor/upstream-contribution-cb6e` preparato per una pull request verso il repository originale.
+Questo documento descrive il branch `cursor/branch-setup-bf00`, che include tutti i miglioramenti del fork e la documentazione di contributo per una pull request verso il repository originale.
 
 ## Repositories / Repository
 
@@ -10,7 +10,7 @@ Questo documento descrive il branch `cursor/upstream-contribution-cb6e` preparat
 |--------------|-----|
 | **Upstream (original)** | https://github.com/zwc456baby/ScrcpyForAndroid |
 | **Official fork** | https://github.com/IlSommoKadam/ScrcpyForAndroid |
-| **PR branch** | `cursor/upstream-contribution-cb6e` |
+| **PR branch** | `cursor/branch-setup-bf00` |
 
 ## PR goal / Obiettivo della PR
 
@@ -39,7 +39,7 @@ Portare nel progetto originale un set coerente di miglioramenti:
 git remote add official https://github.com/IlSommoKadam/ScrcpyForAndroid.git
 
 # Push the contribution branch / Pusha il branch di contributo
-git push -u official cursor/upstream-contribution-cb6e
+git push -u official cursor/branch-setup-bf00
 
 # Optionally push main with all improvements / Opzionale: pusha main con tutti i miglioramenti
 git push official main
@@ -51,7 +51,7 @@ Since `IlSommoKadam/ScrcpyForAndroid` is a registered GitHub fork of upstream, t
 
 Poiché `IlSommoKadam/ScrcpyForAndroid` è un fork GitHub registrato di upstream, il link di confronto funziona direttamente:
 
-1. Open / Apri: https://github.com/zwc456baby/ScrcpyForAndroid/compare/main...IlSommoKadam:ScrcpyForAndroid:cursor/upstream-contribution-cb6e?expand=1
+1. Open / Apri: https://github.com/zwc456baby/ScrcpyForAndroid/compare/main...IlSommoKadam:ScrcpyForAndroid:cursor/branch-setup-bf00?expand=1
 2. Click **Create pull request** / Clicca **Create pull request**
 3. Use title and body from [`PULL_REQUEST.md`](PULL_REQUEST.md):
    - **Title / Titolo:** `Mirroring reliability, Android 14+ support, and UX improvements`
